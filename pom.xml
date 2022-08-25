@@ -24,6 +24,7 @@
         <module>mall-user-consumer-demo</module>
         <module>mall-account</module>
         <module>mall-user-ribbon-demo</module>
+        <module>mall-user-sentinel-demo</module>
     </modules>
 
     <properties>

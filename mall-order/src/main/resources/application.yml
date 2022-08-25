@@ -16,6 +16,12 @@ spring:
         cluster-name: SH
 #        ephemeral: false
 
+    sentinel:
+      transport:
+        port: 8720
+        dashboard: 127.0.0.1:8849
+      eager: true
+
 
 
   #数据库配置
