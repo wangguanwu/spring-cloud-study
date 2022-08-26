@@ -18,7 +18,7 @@ spring:
 
     sentinel:
       transport:
-        port: 8720
+        port: 8719
         dashboard: 127.0.0.1:8849
       eager: true
 

@@ -1,0 +1,71 @@
+server:
+  port: 8800
+
+#暴露actuator端点   http://localhost:8800/actuator/sentinel
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+
+spring:
+  application:
+    name: mall-user-sentinel-demo
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+
+    sentinel:
+      eager: true
+      transport:
+        port: 8722
+        dashboard: 127.0.0.1:8849
+
+
+      # 将其配置为 false 即可根据不同的 URL 进行链路限流
+      #web-context-unify: false
+      # 从nacos配置中心拉取规则信息
+  #      datasource:
+  #        flow-rules: #流控规则
+  #          nacos:
+  #            server-addr: 127.0.0.1:8848
+  #            dataId: ${spring.application.name}-flow-rules
+  #            groupId: SENTINEL_GROUP   # 注意groupId对应Sentinel Dashboard中的定义
+  #            data-type: json
+  #            rule-type: flow
+
+
+  #数据库配置
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    druid:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      url: jdbc:mysql://localhost:3306/ms_user?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
+      username: root
+      password: wu123
+      initial-size: 10
+      max-active: 100
+      min-idle: 10
+      max-wait: 60000
+      pool-prepared-statements: true
+      max-pool-prepared-statement-per-connection-size: 20
+      time-between-eviction-runs-millis: 60000
+      min-evictable-idle-time-millis: 300000
+      test-while-idle: true
+      test-on-borrow: false
+      test-on-return: false
+      stat-view-servlet:
+        enabled: true
+        url-pattern: /druid/*
+      filter:
+        stat:
+          log-slow-sql: true
+          slow-sql-millis: 1000
+          merge-sql: false
+        wall:
+          config:
+            multi-statement-allow: true
+
+
+
