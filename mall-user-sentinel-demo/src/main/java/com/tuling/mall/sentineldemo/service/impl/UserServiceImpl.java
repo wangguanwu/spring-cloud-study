@@ -21,7 +21,7 @@ public class UserServiceImpl implements UserService {
         this.userDao = userDao;
     }
 
-    @SentinelResource(value = "getUser", blockHandler = "handleException")
+//    @SentinelResource(value = "getUser", blockHandler = "handleException")
     @Override
     public UserEntity getById(Integer id) {
         return userDao.getById(id);

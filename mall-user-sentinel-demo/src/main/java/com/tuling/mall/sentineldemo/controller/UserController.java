@@ -49,7 +49,7 @@ public class UserController {
     }
 
     @GetMapping("/info/{id}")
-    @SentinelResource(value = "userinfo", blockHandler = "handleException", fallback = "fallback")
+   @SentinelResource(value = "getUser", blockHandler = "handleException", fallback = "fallback")
     public R info(@PathVariable("id") Integer id) {
         UserEntity userEntity = userService.getById(id);
         if (id == 4) {
