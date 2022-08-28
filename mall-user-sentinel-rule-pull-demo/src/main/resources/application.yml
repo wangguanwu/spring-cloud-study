@@ -1,0 +1,30 @@
+server:
+  port: 8805
+
+spring:
+  application:
+    name: mall-user-sentinel-rule-pull-demo  #微服务名称
+
+  #配置nacos注册中心地址
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+
+    sentinel:
+      transport:
+        # 添加sentinel的控制台地址
+        dashboard: 127.0.0.1:8080
+
+
+#暴露actuator端点   http://localhost:8800/actuator/sentinel
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+
+
+feign:
+  sentinel:
+    enabled: true   #开启sentinel对feign的支持 默认false
