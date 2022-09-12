@@ -19,7 +19,7 @@ spring:
     sentinel:
       transport:
         port: 8719
-        dashboard: 127.0.0.1:8849
+        dashboard: 127.0.0.1:8080
       eager: true
 
 
@@ -31,7 +31,7 @@ spring:
       driver-class-name: com.mysql.cj.jdbc.Driver
       url: jdbc:mysql://localhost:3306/ms_order?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
       username: root
-      password: wu123
+      password:
       initial-size: 10
       max-active: 100
       min-idle: 10

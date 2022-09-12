@@ -1,0 +1,2 @@
+org.springframework.boot.SpringApplicationRunListener=\
+  com.gw.mall.sentinel.rule.push.listener.SentinelApplicationRunListener

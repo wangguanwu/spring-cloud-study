@@ -27,6 +27,7 @@
         <module>mall-user-sentinel-demo</module>
         <module>mall-user-sentinel-rule-pull-demo</module>
         <module>mall-user-loadbalancer-demo</module>
+        <module>mall-user-sentinel-rule-push-demo</module>
     </modules>
 
     <properties>
